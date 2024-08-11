@@ -17,6 +17,15 @@ window.onload = function(){
             height:gameHeight,
             //height:960,
         },
+        plugins: {
+            scene: [
+                /* {
+                    key: 'SpinePlugin',
+                    plugin: window.SpinePlugin,
+                    sceneKey: 'spine',
+                } */
+            ]
+        },
         dom: {
             createContainer: true
         },

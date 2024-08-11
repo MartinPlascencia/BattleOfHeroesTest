@@ -85,7 +85,7 @@ var sceneloader = function(){
 				if(typeof assets.spines == "object"){
 					for(var indexSpine = 0; indexSpine < assets.spines.length; indexSpine++){
 						var currentSpine = assets.spines[indexSpine]
-						currentLoader.spine(currentSpine.name, currentSpine.json, currentSpine.atlas, true)
+						currentLoader.spine(currentSpine.name, currentSpine.json, [currentSpine.atlas], true)
 					}
 				}
 

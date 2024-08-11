@@ -78,7 +78,7 @@ class mapScene extends Phaser.Scene{
 				this.deactivateMilestones();
 				gameConfig.setMapProperty('currentMilestone',milestoneImage.milestoneIndex);
 				gameUtils.scaleButton(milestoneImage,()=>{
-					milestoneImage.setInteractive();
+					this.scene.start("GameScene");
 				});
 				sound.play("pop");
 			})

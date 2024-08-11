@@ -41,9 +41,14 @@ var assetsManager = function () {
                     json: "images/game/assets.json",
                     image: "images/game/assets.png",
                 },
+                {   
+                    name: "backgrounds",
+                    json: "images/game/backgrounds.json",
+                    image: "images/game/backgrounds.png",
+                },
 
             ],
-            soundsList:["beep","bucket","click2","explosion1","Game_Start","jackpot","lose","pop","pop_magic","gameplaySong","level_failed",
+            soundsList:["bucket","click2","explosion1","Game_Start","lose","pop","pop_magic","gameplaySong","level_failed",
                         "quick-whoosh","coin","minigamesError","cashSound","fire","rainbow"],
             soundFormat:'.mp3',
             fonts: [
@@ -60,12 +65,13 @@ var assetsManager = function () {
                     size:{x:346,y:334},
                     frames:17,
                 },
-                {
-                    name:"bubble_pop",
-                    file:"images/game/spritesheets/ss_bubble.png",
-                    size:{x:120,y:120},
-                    frames:16,
-                },
+            ],
+            spines:[
+                /* {
+                    name:"character01",
+                    json:"images/game/spines/character01/skeleton.json",
+                    atlas:"images/game/spines/character01/skeleton.atlas",
+                }, */
             ],
         }
     }
