@@ -51,6 +51,7 @@ class loginScene extends Phaser.Scene{
 			this.loginButton.disableInteractive();
 			localStorage.clear();
 			gameConfig.setPlayerInfoProperty('playerName',this.inputField.text);
+			gameConfig.restartMilestones();
 			this.goToMapScene();
 			gameUtils.scaleButton(this.loginButton,()=>{
 				this.loginButton.setInteractive();

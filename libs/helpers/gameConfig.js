@@ -16,28 +16,28 @@ var gameConfig = function () {
                 unlocked:true,
                 stars:0,
                 position:{x:0.11,y:0.27},
-                numberOfEnemies:2,
+                numberOfEnemies:1,
                 background:1,
             },
             {
                 unlocked:false,
                 stars:0,
                 position:{x:0.2,y:0.52},
-                numberOfEnemies:3,
+                numberOfEnemies:2,
                 background:2,
             },
             {
                 unlocked:false,
                 stars:0,
                 position:{x:0.4,y:0.49},
-                numberOfEnemies:4,
+                numberOfEnemies:3,
                 background:1,
             },
             {
                 unlocked:false,
                 stars:0,
                 position:{x:0.77,y:0.8},
-                numberOfEnemies:5,
+                numberOfEnemies:4,
                 background:2,
             },
             {
@@ -86,6 +86,16 @@ var gameConfig = function () {
         ]
     }
     
+    function restartMilestones(){
+        mapInfo.milestones.forEach((milestone,index)=>{
+            if(index == 0)
+                milestone.unlocked = true;
+            else
+                milestone.unlocked = false;
+            milestone.stars = 0;
+        });
+    }
+
     function getInfo(){
         return gameInfo;
     }
@@ -115,6 +125,7 @@ var gameConfig = function () {
     }
 
 	return{
+        restartMilestones:restartMilestones,
         getInfo:getInfo,
         getMapProperty:getMapProperty,
         setPlayerInfoProperty:setPlayerInfoProperty,
