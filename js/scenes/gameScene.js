@@ -149,6 +149,9 @@ class gameScene extends Phaser.Scene{
 
 		this.heroesHealthBar = this.add.container(screen.centerX - offsetBars,uiPositionY);
 
+		let playerText = this.add.bitmapText(-125,-65,'grobold','PLAYER',25).setOrigin(0.5);
+		this.heroesHealthBar.add(playerText);
+
 		let heroHealthBar = this.add.image(0,0,'assets','Green_Bar_Bg').setOrigin(1,0.5);
 		this.heroesHealthBar.add(heroHealthBar);
 
@@ -161,6 +164,9 @@ class gameScene extends Phaser.Scene{
 		this.heroesHealthBar.icon = heroIcon;
 
 		this.enemiesHealthBar = this.add.container(screen.centerX + offsetBars,uiPositionY).setScale(-1,1);
+
+		let enemyText = this.add.bitmapText(-125,-65,'grobold','COMPUTER',25).setOrigin(0.5).setScale(-1,1);
+		this.enemiesHealthBar.add(enemyText);
 
 		let enemyHealthBar = this.add.image(0,0,'assets','Green_Bar_Bg').setOrigin(1,0.5);
 		this.enemiesHealthBar.add(enemyHealthBar);
