@@ -148,6 +148,7 @@ class gameScene extends Phaser.Scene{
 		this.vsText = this.add.image(screen.centerX,uiPositionY,'assets','Vs').setScale(0.75);
 
 		this.heroesHealthBar = this.add.container(screen.centerX - offsetBars,uiPositionY);
+		this.heroesHealthBar.originalScale = 0.8;
 
 		let playerText = this.add.bitmapText(-125,-65,'grobold','PLAYER',25).setOrigin(0.5);
 		this.heroesHealthBar.add(playerText);
@@ -164,6 +165,7 @@ class gameScene extends Phaser.Scene{
 		this.heroesHealthBar.icon = heroIcon;
 
 		this.enemiesHealthBar = this.add.container(screen.centerX + offsetBars,uiPositionY).setScale(-1,1);
+		this.enemiesHealthBar.originalScale = 0.8;
 
 		let enemyText = this.add.bitmapText(-125,-65,'grobold','COMPUTER',25).setOrigin(0.5).setScale(-1,1);
 		this.enemiesHealthBar.add(enemyText);
@@ -403,11 +405,11 @@ class gameScene extends Phaser.Scene{
 
 	startHealthBar(bar,iconName, isEnemy = false ){
 		sound.play("Game_Start");
-		let scaleValue = isEnemy ? -1 : 1;
+		let scaleValue = isEnemy ? -bar.originalScale : bar.originalScale;
 		this.tweens.add({
 			targets:bar,
 			scaleX:{from:0,to:scaleValue},
-			scaleY:1,
+			scaleY:bar.originalScale,
 			ease:'Back.easeOut',
 			duration:500,
 		});

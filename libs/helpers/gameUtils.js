@@ -28,7 +28,13 @@ var gameUtils = function () {
             return;
 		gameConfig.setPlayerInfoProperty('playerName',file.playerName);
         if(file.milestones)
-            gameConfig.setMapProperty('milestones',file.milestones);
+        {
+            let milestones = gameConfig.getMapProperty('milestones');
+            for(let i = 0;i<file.milestones.length;i++){
+                milestones[i].unlocked = file.milestones[i].unlocked;
+                milestones[i].stars = file.milestones[i].stars;
+            }
+        }
 
         console.log(gameConfig.getPlayerInfoProperty('playerName') + " player name");
     }
