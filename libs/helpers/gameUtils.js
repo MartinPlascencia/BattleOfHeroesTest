@@ -162,21 +162,6 @@ var gameUtils = function () {
             return anim;
     }
 
-    function showSprite(name,atlasName){
-        let sprite = atlasName?spriteParticlesGroup.get(0,0,atlasName,name):spriteParticlesGroup.get(0,0,name);
-        atlasName ? sprite.setTexture(atlasName,name) : sprite.setTexture(name);
-        sprite.setActive(true);
-        sprite.setVisible(true);
-        sprite.alpha = 1;
-        sprite.setScale(1);
-        sprite.setTint(0xffffff);
-        return sprite;
-    }
-
-    function hideSprite(sprite){
-        spriteParticlesGroup.killAndHide(sprite);
-    }
-
     function getPositionToEmit(obj,offset){
 
         offset = offset || {x:0,y:0};
@@ -242,21 +227,6 @@ var gameUtils = function () {
         }
     };
 
-    function formatNumber(number){
-        if(number < 1000){
-            return number;
-        }else if(number > 999 && number <1000000){
-            number = number/1000;
-            return checkDecimals(number).toString() + 'K';
-        }else if(number > 99999 && number < 1000000000){
-            number = number/1000000;
-            return checkDecimals(number).toString() + 'M';
-        }else{
-            number =  number/1000000000;
-            return checkDecimals(number).toString() + 'B';
-        }
-    };
-
     function showTextParticles(text,obj,offsetPosition,fontSize,tint,font,dontMove){
 
         var particleText
@@ -299,14 +269,6 @@ var gameUtils = function () {
          
     }
 
-    function checkOverlap(spriteA, spriteB) {
-
-		var boundsA = spriteA.getBounds();
-	    var boundsB = spriteB.getBounds();
-
-	    return Phaser.Geom.Intersects.RectangleToRectangle(boundsA, boundsB);
-    }
-
     function blockGame(active){
 
         if(active){
@@ -334,16 +296,6 @@ var gameUtils = function () {
         }
     }
 
-    function checkDistanceOverlap(obj1,obj2,distance){
-        let pos1 = getPositionToEmit(obj1);
-        let pos2 = getPositionToEmit(obj2);
-        if(Math.abs(pos1.x - pos2.x) < distance && Math.abs(pos1.y - pos2.y) < distance){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     function checkBlockResolution(){
         if(!firstResolution)
             firstResolution = getResolution()
@@ -364,14 +316,6 @@ var gameUtils = function () {
         return desktop
     }
 
-    function formatImage(image,size){
-        let originalSize = image.displayWidth
-        if(image.displayWidth > size){
-            image.displayWidth = size
-            image.displayHeight = size * image.displayHeight / originalSize
-        }
-    }
-
 	return{
         setGame:setGame,
         showParticles:showParticles,
@@ -381,15 +325,9 @@ var gameUtils = function () {
         addParticles:addParticles,
         addTextParticles:addTextParticles,
         scaleButton:scaleButton,
-        checkOverlap:checkOverlap,
         checkOrientation:checkOrientation,
         isDesktop:isDesktop,
         getWorldPosition:getPositionToEmit,
-        showSprite:showSprite,
-        hideSprite:hideSprite,
-        checkDistanceOverlap:checkDistanceOverlap,
-        formatNumber:formatNumber,
-        formatImage:formatImage,
         addCloseCallback:addCloseCallback,
         loadLocalData:loadLocalData,
 	}

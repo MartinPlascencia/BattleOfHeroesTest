@@ -16,7 +16,7 @@ var gameConfig = function () {
                 unlocked:true,
                 stars:0,
                 position:{x:0.11,y:0.24},
-                numberOfEnemies:1,
+                numberOfEnemies:2,
                 background:1,
             },
             {
@@ -56,7 +56,7 @@ var gameConfig = function () {
             {
                 name:'character02',
                 health:100,
-                attack:10,
+                attack:[10,25],
                 defense:10,
                 animationFrames:[
                     {name:'Attack',start:0,end:29,repeat:0},
@@ -72,7 +72,7 @@ var gameConfig = function () {
             {
                 name:'character01',
                 health:100,
-                attack:35,
+                attack:[35,55],
                 defense:10,
                 animationFrames:[
                     {name:'Attack',start:0,end:24,repeat:0},

@@ -17,7 +17,6 @@ class gameScene extends Phaser.Scene{
 	
 	addParticles(){
 
-		gameUtils.addParticles(['star'],'gameAtlas')
 		gameUtils.addSpriteParticles()
 		gameUtils.addTextParticles('grobold')
 
@@ -122,7 +121,7 @@ class gameScene extends Phaser.Scene{
 			let hero = this.add.sprite(screen.centerX - ((i + 1)* this.heroesOffset),heroesPositionY + heroData.offset,heroData.name).setScale(-1.5,1.5).setOrigin(0.5,1);
 			hero.characterName = heroData.name;
 			hero.health = heroData.health;
-			hero.attackNumber = heroData.attack;
+			hero.attackNumbers = heroData.attack;
 			hero.play(hero.characterName + "Idle");
 			this.heroesGroup.add(hero);
 
@@ -132,7 +131,7 @@ class gameScene extends Phaser.Scene{
 			let enemy = this.add.sprite(screen.centerX + ((i + 1)* this.heroesOffset),heroesPositionY + enemyData.offset,enemyData.name).setScale(1.5).setOrigin(0.5,1);
 			enemy.health = enemyData.health;
 			enemy.characterName = enemyData.name;
-			enemy.attackNumber = enemyData.attack;
+			enemy.attackNumbers = enemyData.attack;
 			enemy.play(enemy.characterName + "Idle");
 			this.enemiesGroup.add(enemy);
 		}
@@ -272,7 +271,9 @@ class gameScene extends Phaser.Scene{
 		let particlesNames = firstHit ? "bomb" : "punchHit"
 		gameUtils.showSpriteParticles(particlesNames,target,0.75,null,{x:0,y:-100});
 
-		target.health -= attacker.attackNumber;
+		let attackNumber = Phaser.Math.Between(attacker.attackNumbers[0],attacker.attackNumbers[1])
+		target.health -= attackNumber;
+		gameUtils.showTextParticles("-"+attackNumber,target,{x:0,y:-100},35,null,'grobold');
 
 		let scaleValue = target.health / 100;
 		scaleValue = scaleValue < 0 ? 0 : scaleValue;
