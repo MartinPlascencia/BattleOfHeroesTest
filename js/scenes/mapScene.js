@@ -16,22 +16,7 @@ class mapScene extends Phaser.Scene{
 
 		gameUtils.addParticles(['star'],'gameAtlas')
 		gameUtils.addSpriteParticles()
-		gameUtils.addTextParticles('grobold')
-
-		this.confetti = this.add.particles(0, 0, 'gameAtlas', {
-			frame:['confetti_red','confetti_yellow','confetti_blue','confetti_green'],
-            x: { random: [ 0,screen.width ] },
-			y:-200,
-            lifespan: 3000,
-            gravityY: 400,
-            frequency: 75,
-            scale: { min: 0.3, max: 1 },
-			angle: { min: 0, max: 360 },
-			rotate:{start:0,end:450},
-			accelerationY:{min:100,max:300},
-			speedX:{min:-100,max:100},
-        });
-		this.confetti.stop();
+		gameUtils.addTextParticles('grobold');
 
 		this.createFade();
 
@@ -78,6 +63,7 @@ class mapScene extends Phaser.Scene{
 				this.deactivateMilestones();
 				gameConfig.setMapProperty('currentMilestone',milestoneImage.milestoneIndex);
 				gameUtils.scaleButton(milestoneImage,()=>{
+					sound.stopSong();
 					this.scene.start("GameScene");
 				});
 				sound.play("pop");
@@ -188,7 +174,8 @@ class mapScene extends Phaser.Scene{
 			onComplete:()=>{
 				this.animateBottomBar();
 			}
-		})
+		});
+		sound.playSong("fantasy_ballad");
 	}
 
 	restartAssets(){

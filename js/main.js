@@ -15,7 +15,6 @@ window.onload = function(){
             autoCenter: Phaser.Scale.CENTER_BOTH,
             width:gameWidth,
             height:gameHeight,
-            //height:960,
         },
         plugins: {
             scene: [
@@ -24,6 +23,8 @@ window.onload = function(){
                     plugin: window.SpinePlugin,
                     sceneKey: 'spine',
                 } */
+               /*  { key: 'SpinePlugin', plugin: window.SpinePlugin, mapping: 'spine' } */
+                            
             ]
         },
         dom: {
