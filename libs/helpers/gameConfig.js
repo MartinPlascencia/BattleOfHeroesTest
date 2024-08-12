@@ -3,7 +3,7 @@ var gameConfig = function () {
     var gameInfo = {
 
         orientation:'landscape',
-        skipLoading:true,
+        skipLoading:false,
     }
 
     var playerInfo = {

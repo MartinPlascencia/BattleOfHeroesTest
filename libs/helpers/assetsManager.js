@@ -76,8 +76,8 @@ var assetsManager = function () {
                 },
 
             ],
-            soundsList:["bucket","click2","explosion1","Game_Start","lose","pop","pop_magic","level_failed",
-                        "quick-whoosh","coin","minigamesError","cashSound","fire","rainbow","fantasy_ballad"],
+            soundsList:["bucket","click2","Game_Start","lose","pop","pop_magic","drag","explode","winwin","beep","gameLose","flesh",
+                        "quick-whoosh","coin","minigamesError","cashSound","fire","rainbow","fantasy_ballad","zombieUp"],
             soundFormat:'.mp3',
             fonts: [
                 {
@@ -92,6 +92,12 @@ var assetsManager = function () {
                     file:"images/game/spritesheets/ss_bomb.png",
                     size:{x:346,y:334},
                     frames:17,
+                },
+                {
+                    name:"punchHit",
+                    file:"images/game/spritesheets/punch_hit.png",
+                    size:{x:199,y:185},
+                    frames:18
                 },
                 {
                     name:"character01",

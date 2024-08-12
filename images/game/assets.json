@@ -5,7 +5,7 @@
 			"format": "RGBA8888",
 			"size": {
 				"w": 509,
-				"h": 1454
+				"h": 1464
 			},
 			"scale": 1,
 			"frames": [
@@ -430,6 +430,27 @@
 					}
 				},
 				{
+					"filename": "leaf",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 85,
+						"h": 85
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 4,
+						"w": 73,
+						"h": 77
+					},
+					"frame": {
+						"x": 434,
+						"y": 923,
+						"w": 73,
+						"h": 77
+					}
+				},
+				{
 					"filename": "Close_btn",
 					"rotated": false,
 					"trimmed": false,
@@ -445,7 +466,7 @@
 					},
 					"frame": {
 						"x": 434,
-						"y": 923,
+						"y": 1002,
 						"w": 58,
 						"h": 59
 					}
@@ -466,30 +487,9 @@
 					},
 					"frame": {
 						"x": 434,
-						"y": 984,
+						"y": 1063,
 						"w": 53,
 						"h": 53
-					}
-				},
-				{
-					"filename": "Arena_icon",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 50,
-						"h": 51
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 50,
-						"h": 51
-					},
-					"frame": {
-						"x": 434,
-						"y": 1039,
-						"w": 50,
-						"h": 51
 					}
 				},
 				{
@@ -577,6 +577,27 @@
 					}
 				},
 				{
+					"filename": "Arena_icon",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 50,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 433,
+						"y": 1118,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
 					"filename": "Map_icon",
 					"rotated": false,
 					"trimmed": false,
@@ -591,8 +612,8 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 433,
-						"y": 1092,
+						"x": 180,
+						"y": 1124,
 						"w": 49,
 						"h": 53
 					}
@@ -612,10 +633,31 @@
 						"h": 42
 					},
 					"frame": {
-						"x": 180,
+						"x": 231,
 						"y": 1124,
 						"w": 49,
 						"h": 42
+					}
+				},
+				{
+					"filename": "Gold01",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 142,
+						"h": 133
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 4,
+						"w": 142,
+						"h": 129
+					},
+					"frame": {
+						"x": 282,
+						"y": 1146,
+						"w": 142,
+						"h": 129
 					}
 				},
 				{
@@ -634,30 +676,9 @@
 					},
 					"frame": {
 						"x": 231,
-						"y": 1124,
+						"y": 1168,
 						"w": 48,
 						"h": 23
-					}
-				},
-				{
-					"filename": "Gold01",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 142,
-						"h": 133
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 4,
-						"w": 142,
-						"h": 129
-					},
-					"frame": {
-						"x": 281,
-						"y": 1146,
-						"w": 142,
-						"h": 129
 					}
 				},
 				{
@@ -675,8 +696,8 @@
 						"h": 59
 					},
 					"frame": {
-						"x": 231,
-						"y": 1149,
+						"x": 180,
+						"y": 1179,
 						"w": 45,
 						"h": 59
 					}
@@ -696,29 +717,8 @@
 						"h": 59
 					},
 					"frame": {
-						"x": 180,
-						"y": 1168,
-						"w": 45,
-						"h": 59
-					}
-				},
-				{
-					"filename": "confetti_red",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 10,
-						"y": 1,
-						"w": 45,
-						"h": 59
-					},
-					"frame": {
 						"x": 227,
-						"y": 1210,
+						"y": 1193,
 						"w": 45,
 						"h": 59
 					}
@@ -766,216 +766,6 @@
 					}
 				},
 				{
-					"filename": "Heroes_empty_images",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 114,
-						"h": 118
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 114,
-						"h": 118
-					},
-					"frame": {
-						"x": 160,
-						"y": 1271,
-						"w": 114,
-						"h": 118
-					}
-				},
-				{
-					"filename": "Scroll_bar02",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 26,
-						"h": 61
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 26,
-						"h": 61
-					},
-					"frame": {
-						"x": 29,
-						"y": 1391,
-						"w": 26,
-						"h": 61
-					}
-				},
-				{
-					"filename": "confetti_yellow",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 10,
-						"y": 1,
-						"w": 45,
-						"h": 59
-					},
-					"frame": {
-						"x": 57,
-						"y": 1391,
-						"w": 45,
-						"h": 59
-					}
-				},
-				{
-					"filename": "LvlMapAvailable",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 35,
-						"h": 32
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 35,
-						"h": 32
-					},
-					"frame": {
-						"x": 29,
-						"y": 1352,
-						"w": 35,
-						"h": 32
-					}
-				},
-				{
-					"filename": "LvlMap0Star",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 37,
-						"h": 53
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 37,
-						"h": 53
-					},
-					"frame": {
-						"x": 104,
-						"y": 1391,
-						"w": 37,
-						"h": 53
-					}
-				},
-				{
-					"filename": "LvlMap1Star",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 37,
-						"h": 53
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 37,
-						"h": 53
-					},
-					"frame": {
-						"x": 143,
-						"y": 1391,
-						"w": 37,
-						"h": 53
-					}
-				},
-				{
-					"filename": "LvlMap3Star",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 37,
-						"h": 53
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 37,
-						"h": 53
-					},
-					"frame": {
-						"x": 182,
-						"y": 1391,
-						"w": 37,
-						"h": 53
-					}
-				},
-				{
-					"filename": "LvlMapLock",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 35,
-						"h": 27
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 35,
-						"h": 27
-					},
-					"frame": {
-						"x": 66,
-						"y": 1352,
-						"w": 35,
-						"h": 27
-					}
-				},
-				{
-					"filename": "LvlMap2Star",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 38,
-						"h": 51
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 38,
-						"h": 51
-					},
-					"frame": {
-						"x": 221,
-						"y": 1391,
-						"w": 38,
-						"h": 51
-					}
-				},
-				{
-					"filename": "Heroes_icon",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 41,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 41,
-						"h": 48
-					},
-					"frame": {
-						"x": 261,
-						"y": 1391,
-						"w": 41,
-						"h": 48
-					}
-				},
-				{
 					"filename": "Cs01",
 					"rotated": false,
 					"trimmed": false,
@@ -990,8 +780,8 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 276,
-						"y": 1277,
+						"x": 29,
+						"y": 1352,
 						"w": 112,
 						"h": 111
 					}
@@ -1011,10 +801,241 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 390,
-						"y": 1277,
+						"x": 143,
+						"y": 1352,
 						"w": 112,
 						"h": 111
+					}
+				},
+				{
+					"filename": "Scroll_bar02",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 26,
+						"h": 61
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 26,
+						"h": 61
+					},
+					"frame": {
+						"x": 160,
+						"y": 1277,
+						"w": 26,
+						"h": 61
+					}
+				},
+				{
+					"filename": "LvlMap0Star",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 37,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 37,
+						"h": 53
+					},
+					"frame": {
+						"x": 188,
+						"y": 1240,
+						"w": 37,
+						"h": 53
+					}
+				},
+				{
+					"filename": "LvlMap1Star",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 37,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 37,
+						"h": 53
+					},
+					"frame": {
+						"x": 188,
+						"y": 1295,
+						"w": 37,
+						"h": 53
+					}
+				},
+				{
+					"filename": "confetti_red",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 1,
+						"w": 45,
+						"h": 59
+					},
+					"frame": {
+						"x": 227,
+						"y": 1254,
+						"w": 45,
+						"h": 59
+					}
+				},
+				{
+					"filename": "LvlMapAvailable",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 35,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 35,
+						"h": 32
+					},
+					"frame": {
+						"x": 227,
+						"y": 1315,
+						"w": 35,
+						"h": 32
+					}
+				},
+				{
+					"filename": "Heroes_empty_images",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 114,
+						"h": 118
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 114,
+						"h": 118
+					},
+					"frame": {
+						"x": 264,
+						"y": 1315,
+						"w": 114,
+						"h": 118
+					}
+				},
+				{
+					"filename": "LvlMapLock",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 35,
+						"h": 27
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 35,
+						"h": 27
+					},
+					"frame": {
+						"x": 257,
+						"y": 1435,
+						"w": 35,
+						"h": 27
+					}
+				},
+				{
+					"filename": "confetti_yellow",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 1,
+						"w": 45,
+						"h": 59
+					},
+					"frame": {
+						"x": 426,
+						"y": 1171,
+						"w": 45,
+						"h": 59
+					}
+				},
+				{
+					"filename": "Heroes_icon",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 41,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 41,
+						"h": 48
+					},
+					"frame": {
+						"x": 426,
+						"y": 1232,
+						"w": 41,
+						"h": 48
+					}
+				},
+				{
+					"filename": "LvlMap2Star",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 38,
+						"h": 51
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 38,
+						"h": 51
+					},
+					"frame": {
+						"x": 469,
+						"y": 1232,
+						"w": 38,
+						"h": 51
+					}
+				},
+				{
+					"filename": "LvlMap3Star",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 37,
+						"h": 53
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 37,
+						"h": 53
+					},
+					"frame": {
+						"x": 380,
+						"y": 1277,
+						"w": 37,
+						"h": 53
 					}
 				}
 			]
@@ -1023,6 +1044,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:0b2d4cd2e91fd2f8b70c4a0411f71de4:8b8d80d8c83d3e02686577dc4108b4e6:a759b6bbc8381ac9c472b28f589ad0d6$"
+		"smartupdate": "$TexturePacker:SmartUpdate:2fc767f5631197aa466a6452be40b58d:15ec51a3876d2574085395e7333073dd:a759b6bbc8381ac9c472b28f589ad0d6$"
 	}
 }

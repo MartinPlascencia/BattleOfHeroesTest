@@ -14,9 +14,24 @@ class mapScene extends Phaser.Scene{
 	
 	addParticles(){
 
-		gameUtils.addParticles(['star'],'gameAtlas')
 		gameUtils.addSpriteParticles()
 		gameUtils.addTextParticles('grobold');
+
+		this.leafParticles = this.add.particles(0, 0, 'assets', {
+			frame:['leaf'],
+            x: { random: [ 0,this.background.displayWidth ] },
+			y:-200,
+            lifespan: 3000,
+            gravityY: 100,
+            frequency: 85,
+            scale: { min: 0.3, max: 1 },
+			angle: { min: 0, max: 360 },
+			rotate:{start:0,end:450},
+			accelerationY:{min:100,max:300},
+			speedX:{min:-100,max:100},
+        });
+		this.leafParticles.start();
+		//this.leafParticles.setScrollFactor(0,0);
 
 		this.createFade();
 
@@ -24,7 +39,7 @@ class mapScene extends Phaser.Scene{
 
 	create(){
 		
-		sound.decode(assetsManager.getGameAssets().assets.soundsList,this)
+		//sound.decode(assetsManager.getGameAssets().assets.soundsList,this)
 
 		this.createMapBackground();
 		this.createScrollCamera();
@@ -165,7 +180,6 @@ class mapScene extends Phaser.Scene{
 	animateScene(){
 		this.whiteFade.alpha = 1;
 		//this.addCoins(1000,this.titleScreen);
-		sound.playSong('menuSong');
 		sound.setMusicVolume(0.3);
 		this.tweens.add({
 			targets:this.whiteFade,
@@ -185,6 +199,7 @@ class mapScene extends Phaser.Scene{
 	}
 
 	animateBottomBar(){
+		sound.play("drag");
 		this.bottomBar.list.forEach((button,index)=>{
 			this.tweens.add({
 				targets:button,

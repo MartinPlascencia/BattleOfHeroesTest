@@ -160,16 +160,6 @@ class loginScene extends Phaser.Scene{
 
 		buttonText = this.add.bitmapText(0,0,'grobold','Continue',30,1);
 		buttonText.setOrigin(0.5);
-		if(gameConfig.getPlayerInfoProperty('playerName') == null){
-			this.continueButton.setAlpha(0.5);
-			this.continueButton.disableInteractive();
-			buttonImage.setScale(2.5)
-		}else{
-			let playerName = gameConfig.getPlayerInfoProperty('playerName');
-			if(playerName.length > 7)
-				playerName = playerName.substring(0,7) + '.';
-			buttonText.text = 'Continue as ' + playerName;
-		}
 		this.continueButton.add(buttonText);
 
 		this.continueButton.setSize(buttonImage.width * buttonImage.scaleX,buttonImage.height * buttonImage.scaleY);
@@ -181,6 +171,16 @@ class loginScene extends Phaser.Scene{
 				this.goToMapScene();
 			});
 		});
+		if(gameConfig.getPlayerInfoProperty('playerName') == null){
+			this.continueButton.setAlpha(0.5);
+			this.continueButton.disableInteractive();
+			buttonImage.setScale(2.5,2);
+		}else{
+			let playerName = gameConfig.getPlayerInfoProperty('playerName');
+			if(playerName.length > 7)
+				playerName = playerName.substring(0,7) + '.';
+			buttonText.text = 'Continue as ' + playerName;
+		}
 		this.intitialButtons.push(this.continueButton);
 
 		this.intitialButtons.forEach((button)=>{
@@ -215,6 +215,7 @@ class loginScene extends Phaser.Scene{
 
 	animateInitialButtons(){
 		this.time.delayedCall(500,()=>{
+			sound.play("bucket");
 			this.intitialButtons.forEach((button,index)=>{
 				this.tweens.add({
 					targets:button,

@@ -17,13 +17,18 @@ var gameUtils = function () {
     function saveLocalData(){
         var file = {
 			playerName: gameConfig.getPlayerInfoProperty('playerName'),
+            milestones:gameConfig.getMapProperty('milestones'),
 		};
 		localStorage.setItem('saveFile',JSON.stringify(file));
     }
 
     function loadLocalData(){
         var file = JSON.parse(localStorage.getItem('saveFile'));
+        if(!file)
+            return;
 		gameConfig.setPlayerInfoProperty('playerName',file.playerName);
+        if(file.milestones)
+            gameConfig.setMapProperty('milestones',file.milestones);
 
         console.log(gameConfig.getPlayerInfoProperty('playerName') + " player name");
     }

@@ -13,7 +13,7 @@ class preloaderIntro extends Phaser.Scene{
 			if(mask.y >= mask.endY && this.startButton.alpha == 0){
 				if(gameConfig.getInfo().skipLoading){
 					this.time.delayedCall(150,()=>{
-						this.scene.start("GameScene");
+						this.scene.start("LoginScene");
 					})
 				}else{
 					this.tweens.add({

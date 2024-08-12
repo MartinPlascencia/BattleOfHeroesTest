@@ -27,8 +27,8 @@ class gameScene extends Phaser.Scene{
 			y:-200,
             lifespan: 3000,
             gravityY: 400,
-            frequency: 75,
-            scale: { min: 0.3, max: 1 },
+            frequency: 120,
+            scale: { min: 0.3, max: 0.8 },
 			angle: { min: 0, max: 360 },
 			rotate:{start:0,end:450},
 			accelerationY:{min:100,max:300},
@@ -36,15 +36,31 @@ class gameScene extends Phaser.Scene{
         });
 		this.confetti.stop();
 
+		this.leafParticles = this.add.particles(0, 0, 'assets', {
+			frame:['leaf'],
+            x: { random: [ 0,screen.width ] },
+			y:-200,
+            lifespan: 3000,
+            gravityY: 50,
+            frequency: 60,
+            scale: { min: 0.3, max: 0.6 },
+			angle: { min: 0, max: 360 },
+			rotate:{start:0,end:450},
+			accelerationY:{min:100,max:300},
+			speedX:{min:-100,max:100},
+        });
+		this.leafParticles.start();
+
 		this.createFade();
 
 	};
 
 	create(){
 		
-		sound.decode(assetsManager.getGameAssets().assets.soundsList,this)
+		//sound.decode(assetsManager.getGameAssets().assets.soundsList,this)
 
 		this.createBackground();
+		this.createBlackFade();
 		this.createHeroes();
 		this.createUI();
 		this.addParticles();
@@ -55,7 +71,7 @@ class gameScene extends Phaser.Scene{
 
 		this.backgroundGroup = this.add.container()
 
-		let backgroundKey = 'Background' + (gameConfig.getMapProperty('currentMilestone') + 1);
+		let backgroundKey = 'Background' + this.currentMilestone.background;
 
 		let backgroundSky = this.add.tileSprite(0,0,screen.width,this.textures.get(backgroundKey + 'Layer04').height,
 			backgroundKey + 'Layer04' ).setOrigin(0,0);
@@ -160,10 +176,10 @@ class gameScene extends Phaser.Scene{
 		this.heroesHealthBar.setScale(0);
 		this.enemiesHealthBar.setScale(0);
 
-		this.counterText = this.add.bitmapText(screen.centerX,screen.centerY - 75,'grobold','0',125).setOrigin(0.5).setScale(0);
+		this.counterText = this.add.bitmapText(screen.centerX,screen.centerY - 75,'grobold','0',125).setOrigin(0.5).setScale(0).setTint(0xffc602);
 	}
 
-	setCounterAnimation(index){
+	setCounterAnimation(index,stay = false){
 		this.counterText.text = index;
 		this.counterText.alpha = 1;
 		this.counterText.setScale(0);
@@ -173,6 +189,8 @@ class gameScene extends Phaser.Scene{
 			duration:500,
 			ease:'Back.easeOut',
 		});
+		if(stay) 
+			return;
 		this.tweens.add({
 			targets:this.counterText,
 			alpha:0,
@@ -187,6 +205,7 @@ class gameScene extends Phaser.Scene{
 		let delay = 150;
 		for(let i = 3; i > 0; i--){
 			this.time.delayedCall(delay,()=>{
+				sound.play("beep");
 				this.setCounterAnimation(i);
 			});
 			delay += 1000;
@@ -236,9 +255,14 @@ class gameScene extends Phaser.Scene{
 
 	setHealthBar(attacker,target,isHero){
 		
+		let firstHit = Phaser.Math.Between(0, 5) > 3;
+		sound.play(firstHit ? "explode" : "flesh");
 		let targetBar = isHero ? this.enemiesHealthBar.greenBar : this.heroesHealthBar.greenBar;
 
 		target.play(target.characterName + "Hit");
+
+		let particlesNames = firstHit ? "bomb" : "punchHit"
+		gameUtils.showSpriteParticles(particlesNames,target,0.75,null,{x:0,y:-100});
 
 		target.health -= attacker.attackNumber;
 
@@ -275,6 +299,7 @@ class gameScene extends Phaser.Scene{
 
 	characterDeath(isHero){
 		
+		sound.play("zombieUp");
 		let target = isHero ? this.heroesGroup.list[this.heroesGroup.currentIndex] : this.enemiesGroup.list[this.enemiesGroup.currentIndex];
 		target.play(target.characterName + "Die");
 
@@ -334,9 +359,18 @@ class gameScene extends Phaser.Scene{
 
 	gameEnded(isHero){
 
+		sound.stopSong();
+		this.leafParticles.stop();
+		this.tweens.add({
+			targets:this.blackFade,
+			alpha:0.6,
+			duration:300,
+		});
 		if(isHero){
+			
+			sound.play("winwin");
 			this.confetti.start();
-			this.setCounterAnimation('WIN!');
+			this.setCounterAnimation('WIN!',true);
 			this.currentMilestone.stars = 3;
 			let currentMilestone = gameConfig.getMapProperty('currentMilestone');
 			currentMilestone++;
@@ -345,22 +379,24 @@ class gameScene extends Phaser.Scene{
 				milestones[currentMilestone].unlocked = true;
 			gameConfig.setMapProperty('currentMilestone',currentMilestone);
 		}else{
-
+			sound.play("gameLose");
 		}
 
-		this.tweens.add({
-			targets:this.whiteFade,
-			alpha:1,
-			duration:1000,
-			onComplete:()=>{
-				this.scene.start("MapScene");
-			}
+		this.time.delayedCall(4000,()=>{
+			this.tweens.add({
+				targets:this.whiteFade,
+				alpha:1,
+				duration:500,
+				onComplete:()=>{
+					this.scene.start("MapScene");
+				}
+			});
 		});
 		
 	}
 
 	startHealthBar(bar,iconName, isEnemy = false ){
-
+		sound.play("Game_Start");
 		let scaleValue = isEnemy ? -1 : 1;
 		this.tweens.add({
 			targets:bar,
@@ -391,15 +427,20 @@ class gameScene extends Phaser.Scene{
 		//this.sceneGroup.add(this.whiteFade)
 	}
 
+	createBlackFade(){
+		this.blackFade = this.add.rectangle(screen.centerX,screen.centerY,screen.width,screen.height,0x000000)
+		this.blackFade.alpha = 0;
+	}
+
 	show(){
 		this.restartAssets();
 		this.animateScene();
 	}
 
 	animateScene(){
+		sound.playSong("fantasy_ballad");
 		this.whiteFade.alpha = 1;
 		//this.addCoins(1000,this.titleScreen);
-		sound.playSong('menuSong');
 		sound.setMusicVolume(0.3);
 		this.tweens.add({
 			targets:this.whiteFade,
